@@ -32,7 +32,7 @@ for privacy, source coverage, attribution limits, and Pro features.
 
 ## Release and updates
 
-The formula installs **v1.0.0** from the public GitHub release archive and verifies
+The formula installs **v1.0.1** from the public GitHub release archive and verifies
 it with a SHA-256 checksum. It includes the release's bundled dashboard chart
 asset. It does not track unreleased changes on the main branch.
 
