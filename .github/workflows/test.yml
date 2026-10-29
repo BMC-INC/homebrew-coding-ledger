@@ -1,0 +1,20 @@
+name: Formula integration
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  install:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install and test the candidate formula
+        env:
+          HOMEBREW_NO_AUTO_UPDATE: "1"
+          HOMEBREW_NO_INSTALL_CLEANUP: "1"
+        run: |
+          brew tap BMC-INC/coding-ledger
+          cp Formula/coding-ledger.rb "$(brew --repository bmc-inc/coding-ledger)/Formula/coding-ledger.rb"
+          brew install --build-from-source bmc-inc/coding-ledger/coding-ledger
+          brew test bmc-inc/coding-ledger/coding-ledger
